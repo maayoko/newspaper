@@ -1,0 +1,11 @@
+@import "../variables";
+
+.logo {
+	&--title {
+		font-size: 3rem;
+		color: $white;
+		text-decoration: none;
+		font-family: "Source Sans Pro", sans-serif;
+		font-weight: 400;
+	}
+}

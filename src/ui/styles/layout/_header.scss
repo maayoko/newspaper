@@ -1,0 +1,14 @@
+@import "../variables";
+@import "./mixins";
+
+.header {
+	display: flex;
+	align-items: center;
+	height: 8rem;
+	background-color: $primary;
+	padding: 0 3rem;
+
+	& > * {
+		@include container;
+	}
+}

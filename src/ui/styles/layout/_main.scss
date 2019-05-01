@@ -1,0 +1,11 @@
+@import "../variables";
+@import "./mixins";
+
+.main {
+	padding: 3rem;
+	background-color: $grey-1;
+
+	& > * {
+		@include container;
+	}
+}
