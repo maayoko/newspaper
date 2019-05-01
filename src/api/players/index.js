@@ -1,7 +1,7 @@
 import players from "./players.json";
 
 const getAll = () => {
-	return players;
+	return Promise.resolve(players);
 };
 
 export { getAll };

@@ -2,12 +2,13 @@
   <article class="article">
     <div class="article__image">
       <picture>
-        <source media="(min-width: 800px)" :srcset="article.imageSet.highRes">
-        <source :srcset="article.imageSet.lowRes">
-        <img :alt="article.title" :src="article.imageSet.highRes">
+        <source media="(min-width: 800px)" :srcset="article.imageSet.lowRes">
+        <source :srcset="article.imageSet.highRes">
+        <img :alt="article.title" :src="article.imageSet.lowRes">
       </picture>
-      <h4>{{ article.title }}</h4>
+      <h4 class="article__title">{{ article.title }}</h4>
     </div>
+    <div class="article__content" v-html="article.content"></div>
   </article>
 </template>
 
@@ -24,6 +25,7 @@ export default {
 				articleService.create(
 					"Bem metodologija",
 					"BEM je kratica za Block, Element, Modifier",
+					"bem-metodologija",
 					{ lowRes: "", highRes: "" }
 				)
 		}
