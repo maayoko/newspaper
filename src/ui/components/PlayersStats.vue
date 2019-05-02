@@ -7,7 +7,7 @@
     <div class="players-stats__list">
       <div class="players-stats__list-title">
         <p>Korisnik</p>
-        <p>Bodovi</p>
+        <p @click="reversePlayersList()">Bodovi</p>
       </div>
       <template v-for="(player, idx) in slicePlayers">
         <div
@@ -39,34 +39,63 @@ export default {
 	data: function() {
 		return {
 			currentPlayers: [...this.players],
-			selectedPlayer: this.players[0] || {}
+			selectedPlayer: this.players[0] || {},
+			operation: "cropped",
+			fullList: false,
+			reversedList: false
 		};
 	},
 	computed: {
-		slicePlayers: function(shouldSlice) {
-			const slicedPlayers = [
-				...this.currentPlayers.slice(0, 7),
-				...this.currentPlayers.slice(-1)
-			];
+		slicePlayers: function() {
+			const { operation: operationType, fullList, reversedList } = this;
+			if (operationType === "cropped") {
+				const slicedPlayers = [
+					...this.currentPlayers.slice(0, 7),
+					...this.currentPlayers.slice(-1)
+				];
 
-			return slicedPlayers.map((player, idx, arr) => {
-				const lastPlayer = idx === arr.length - 1;
-				const position = lastPlayer
-					? this.currentPlayers.length
-					: idx + 1;
-				return { ...player, position, last: lastPlayer };
-			});
+				return slicedPlayers.map((player, idx, arr) => {
+					const lastPlayer = idx === arr.length - 1 && !fullList;
+					const position = lastPlayer
+						? this.currentPlayers.length
+						: idx + 1;
+					return { ...player, position, last: lastPlayer };
+				});
+			} else if (operationType === "fullList") {
+				this.currentPlayers = [...this.players];
+				return this.currentPlayers.map((player, idx) => ({
+					...player,
+					position: idx + 1
+				}));
+			} else if (operationType === "reverseList") {
+				const reversedPlayers = this.players.reverse();
+				const slicedPlayers = [
+					...(fullList
+						? reversedPlayers
+						: [
+								...reversedPlayers.slice(0, 7),
+								...reversedPlayers.slice(-1)
+						  ])
+				];
+
+				return slicedPlayers.map((player, idx, arr) => {
+					const lastPlayer = idx === arr.length - 1 && !fullList;
+					const position = lastPlayer
+						? reversedPlayers.length
+						: idx + 1;
+					return { ...player, position, last: lastPlayer };
+				});
+			}
 		}
 	},
 	methods: {
-		showAllPlayers: function() {
-			this.currentPlayers = [...this.players];
-			this.currentPlayers.map((player, idx) => ({
-				...player,
-				position: idx + 1
-			}));
-
-			console.log(this.currentPlayers);
+		showAllPlayers() {
+			this.operation = "fullList";
+			this.fullList = !this.fullList;
+		},
+		reversePlayersList() {
+			this.operation = "reverseList";
+			this.reversedList = !this.reversedList;
 		}
 	}
 };

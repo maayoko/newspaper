@@ -1,11 +1,14 @@
 <template>
-  <div class="player">
+  <router-link
+    class="player"
+    :to="{ path: `/players/${player.name}`, query: { playerId: player._id } }"
+  >
     <div>{{ position }}.</div>
     <div>{{ player.name }}</div>
     <div>
       <strong>{{ player.score }}</strong> bodova
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
