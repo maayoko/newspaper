@@ -17,7 +17,7 @@ export default {
 	name: "Home",
 	data: function() {
 		return {
-			articles: this.$store.state.articles.articles
+			articles: this.$store.state.articles
 		};
 	}
 };
