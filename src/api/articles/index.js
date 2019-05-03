@@ -4,7 +4,11 @@ import articles from "./articles.json";
 import { mapArticles } from "./mappers";
 
 const getAll = () => {
-	return Promise.resolve(mapArticles(articles));
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			resolve(mapArticles(articles));
+		}, 3000);
+	});
 	// return http.get(`${apiConfig.API_URL}/articles`);
 };
 

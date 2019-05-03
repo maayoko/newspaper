@@ -11,11 +11,11 @@ export default new Router({
 			path: "/",
 			name: "home",
 			beforeEnter: async (to, from, next) => {
+				next();
 				const haveArticles = store.state.articles != null;
 				if (!haveArticles) {
 					await store.dispatch("getArticles");
 				}
-				next();
 			},
 			component: Home
 		},

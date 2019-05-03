@@ -1,5 +1,5 @@
 <template>
-  <div style="display: flex;">
+  <div style="display: flex; position:absolute;">
     <div style="flex-basis: 50%;">
       <Article :article="article"/>
     </div>

@@ -22,7 +22,7 @@ export default {
 	name: "Player",
 	props: {
 		player: {
-			type: Player,
+			type: Object,
 			default: playerService.create(1, "John Doe", 3400, "")
 		},
 		position: {
