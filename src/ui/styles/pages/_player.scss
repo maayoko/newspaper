@@ -1,0 +1,26 @@
+.player-container {
+	text-align: center;
+}
+
+.player {
+	width: 30rem;
+	display: inline-block;
+	padding: 2rem;
+	box-shadow: 2px 4px 8px 4px #80808040;
+
+	&__image {
+		width: 15rem;
+		height: 15rem;
+		border-radius: 50%;
+	}
+
+	&__name {
+		font-size: 2rem;
+		margin: 2rem 0 1rem;
+	}
+
+	&__score {
+		font-size: 1.8rem;
+		margin-top: 1rem;
+	}
+}

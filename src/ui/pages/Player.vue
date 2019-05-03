@@ -1,7 +1,11 @@
 <template>
-  <div>
-    <h2>{{ player.name}}</h2>
-    <p>{{ player.score }}</p>
+  <div class="player-container">
+    <div class="player">
+      <img class="player__image" :alt="player.name" :src="player.imageSrc">
+      <h2 class="player__name">{{ player.name}}</h2>
+      <hr>
+      <p class="player__score">Score - {{ player.score }}</p>
+    </div>
   </div>
 </template>
 
@@ -15,3 +19,8 @@ export default {
 	}
 };
 </script>
+
+<style lang="scss" scoped>
+@import "@/ui/styles/pages/_player.scss";
+</style>
+

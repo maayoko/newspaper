@@ -4,9 +4,9 @@
 .main {
 	padding: 3rem;
 	background-color: $grey-1;
-	height: calc(100vh - 8rem);
+	min-height: calc(100vh - 8rem);
 
-	& > * {
+	& > div {
 		@include container;
 	}
 }
