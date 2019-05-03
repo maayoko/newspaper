@@ -25,6 +25,7 @@ export default new Vuex.Store({
 	},
 	actions: {
 		getArticles: async ({ commit }) => {
+			console.log("called");
 			commit("updateArticles", await apiArticles.getAll());
 		},
 		getPlayers: async ({ commit }) => {

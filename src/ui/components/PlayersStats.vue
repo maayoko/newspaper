@@ -10,12 +10,9 @@
         <p @click="reversePlayersList()">Bodovi</p>
       </div>
       <template v-for="(player, idx) in slicePlayers">
-        <div
-          @click="showAllPlayers()"
-          style="height: 3rem; text-align: center; line-height: 0.6rem; font-size: 4rem; color: #686868; cursor: pointer;"
-          :key="idx"
-          v-if="player.last"
-        >. . .</div>
+        <div @click="showAllPlayers()" class="players-stats__dots" :key="idx" v-if="player.last">
+          <span :style="`background-image: url(${require('@/assets/dots.png')});`"/>
+        </div>
         <Player :key="player._id" :player="player" :position="player.position"/>
       </template>
     </div>

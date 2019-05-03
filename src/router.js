@@ -10,25 +10,25 @@ export default new Router({
 		{
 			path: "/",
 			name: "home",
-			beforeEnter: async (to, from, next) => {
-				next();
-				const haveArticles = store.state.articles != null;
-				if (!haveArticles) {
-					await store.dispatch("getArticles");
-				}
-			},
+			// beforeEnter: async (to, from, next) => {
+			// 	next();
+			// 	const haveArticles = store.state.articles != null;
+			// 	if (!haveArticles) {
+			// 		await store.dispatch("getArticles");
+			// 	}
+			// },
 			component: Home
 		},
 		{
 			path: "/blog/:articleLink",
 			name: "blog",
-			beforeEnter: async (to, from, next) => {
-				const havePlayers = store.state.players != null;
-				if (!havePlayers) {
-					await store.dispatch("getPlayers");
-				}
-				next();
-			},
+			// beforeEnter: async (to, from, next) => {
+			// 	const havePlayers = store.state.players != null;
+			// 	if (!havePlayers) {
+			// 		await store.dispatch("getPlayers");
+			// 	}
+			// 	next();
+			// },
 			// route level code-splitting
 			// this generates a separate chunk (about.[hash].js) for this route
 			// which is lazy-loaded when the route is visited.
