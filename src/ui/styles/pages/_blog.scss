@@ -1,0 +1,15 @@
+@import "../mixins";
+
+.blog {
+	display: flex;
+	position: absolute;
+
+	@include respond(tab-port) {
+		flex-direction: column;
+	}
+
+	&__article,
+	&__players-stats {
+		flex-basis: 50%;
+	}
+}

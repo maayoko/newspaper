@@ -1,9 +1,14 @@
 @import "../variables";
+@import "../mixins";
 
 .home {
 	&__article-list {
 		display: flex;
 		flex-wrap: wrap;
+
+		@include respond(tab-port) {
+			justify-content: center;
+		}
 	}
 
 	&__article {
@@ -12,12 +17,12 @@
 		margin-bottom: 2rem;
 		transition: all 1s;
 
-		&:hover {
-			box-shadow: 2px 4px 8px 4px #80808080;
-		}
-
 		&:nth-child(odd) {
 			margin-right: 2rem;
+		}
+
+		&:hover {
+			box-shadow: 2px 4px 8px 4px #80808080;
 		}
 
 		& > picture {
@@ -45,6 +50,17 @@
 					text-decoration: underline;
 				}
 			}
+		}
+
+		@include respond(tab-port) {
+			width: 54.2rem;
+			&:nth-child(odd) {
+				margin-right: 0rem;
+			}
+		}
+
+		@include respond(phone) {
+			width: 100%;
 		}
 	}
 }

@@ -20,6 +20,11 @@ html {
 		font-size: 50%; //1 rem = 8px, 8/16 = 50%
 	}
 
+	@include respond(phone) {
+		// width < 600?
+		font-size: 43.75%; //1 rem = 7px, 7/16 = 43.75%
+	}
+
 	@include respond(big-desktop) {
 		font-size: 75%; //1rem = 12, 12/16
 	}

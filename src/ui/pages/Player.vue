@@ -1,5 +1,5 @@
 <template>
-  <div style="position:absolute;" class="player-container">
+  <div class="player-container">
     <div class="player">
       <img class="player__image" :alt="player.name" :src="player.imageSrc">
       <h2 class="player__name">{{ player.name}}</h2>

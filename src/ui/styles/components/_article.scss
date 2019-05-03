@@ -1,10 +1,23 @@
 @import "../variables";
+@import "../mixins";
 
 .article {
+	@include respond(tab-port) {
+		margin-bottom: 3rem;
+	}
+
 	&__image {
 		position: relative;
 		height: 32.2rem;
 		width: 100%;
+
+		@include respond(tab-port) {
+			height: initial;
+		}
+
+		& img {
+			width: 100%;
+		}
 	}
 
 	&__title {

@@ -1,4 +1,14 @@
+@import "../mixins";
+
 @mixin container() {
 	margin: 0 auto;
 	width: 96.4rem;
+
+	@include respond(tab-port) {
+		width: 69.4rem;
+	}
+
+	@include respond(phone) {
+		width: 100%;
+	}
 }

@@ -1,9 +1,9 @@
 <template>
-  <div style="display: flex; position:absolute;">
-    <div style="flex-basis: 50%;">
+  <div class="blog">
+    <div class="blog__article">
       <Article :article="article"/>
     </div>
-    <div style="flex-basis: 50%;">
+    <div class="blog__players-stats">
       <PlayersStats :players="players"/>
     </div>
   </div>
@@ -27,3 +27,8 @@ export default {
 	}
 };
 </script>
+
+<style lang="scss" scoped>
+@import "@/ui/styles/pages/_blog.scss";
+</style>
+
