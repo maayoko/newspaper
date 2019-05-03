@@ -51,6 +51,30 @@
 		height: 5rem;
 		width: 0.5rem;
 		background-image: linear-gradient(to bottom, transparent, transparent);
+		transition: top 0.3s ease-in, height 0.3s ease-in;
+	}
+
+	&:before {
+		display: block;
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 9rem;
+		width: 0;
+		background-image: linear-gradient(
+			to bottom,
+			rgba(#fcd600, 0.1),
+			rgba(#ea990a, 0.1)
+		);
+		transition: width 0.3s ease-in;
+		transition-delay: 0.3s;
+	}
+
+	&:nth-child(n + 6) {
+		&:before {
+			transition-delay: 0s;
+		}
 	}
 
 	&--1:after {
@@ -79,5 +103,16 @@
 			rgba(#fcd600, 0.1),
 			rgba(#ea990a, 0.1)
 		);
+	}
+
+	&:hover {
+		&:after {
+			top: 0rem;
+			height: 9rem;
+		}
+
+		&:before {
+			width: calc(100% + 3rem);
+		}
 	}
 }
