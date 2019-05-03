@@ -1,10 +1,13 @@
 <template>
   <router-link
-    class="player"
+    :class="`player player--${position}`"
     :to="{ path: `/players/${player.name}`, query: { playerId: player._id } }"
   >
     <div>{{ position }}.</div>
-    <div>{{ player.name }}</div>
+    <div>
+      <img :alt="player.name" :src="player.imageSrc">
+      {{ player.name }}
+    </div>
     <div>
       <strong>{{ player.score }}</strong> bodova
     </div>
