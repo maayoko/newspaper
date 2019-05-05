@@ -12,7 +12,7 @@
 	}
 
 	&__article {
-		background-color: $white;
+		background-color: $color-white;
 		width: 47.2rem;
 		margin-bottom: 2rem;
 		transition: all 1s;
@@ -44,7 +44,7 @@
 			& > a {
 				font-size: 1.5rem;
 				text-decoration: none;
-				color: $primary;
+				color: $color-primary;
 
 				&:hover {
 					text-decoration: underline;

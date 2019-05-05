@@ -13,13 +13,13 @@
 		margin-left: 2.3rem;
 		font-size: 1.8rem;
 		font-weight: 700;
-		color: $white;
+		color: $color-white;
 	}
 
 	// player's name with image
 	& > :nth-child(2) {
 		flex-basis: 50%;
-		color: $primary;
+		color: $color-primary;
 		font-size: 1.6rem;
 		display: flex;
 		align-items: center;
@@ -32,7 +32,7 @@
 	// player's score
 	& > :last-child {
 		flex-basis: 35%;
-		color: $white;
+		color: $color-white;
 		font-size: 1.4rem;
 		text-align: right;
 

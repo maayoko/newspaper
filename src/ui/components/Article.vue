@@ -2,9 +2,12 @@
   <article class="article">
     <div class="article__image">
       <picture>
-        <source media="(min-width: 800px)" :srcset="article.imageSet.lowRes">
-        <source :srcset="article.imageSet.highRes">
-        <img :alt="article.title" :src="article.imageSet.lowRes">
+        <source media="(max-width: 37.5em)" :srcset="article.imageSet.lowRes">
+        <img
+          :alt="article.title"
+          :srcset="`${article.imageSet.lowRes} 1x, ${article.imageSet.highRes} 2x`"
+          :src="`${article.imageSet.highRes}`"
+        >
       </picture>
       <h4 class="article__title">{{ article.title }}</h4>
     </div>
