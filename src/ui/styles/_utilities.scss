@@ -1,0 +1,38 @@
+.horizontal-center {
+	text-align: center;
+}
+
+.abs-center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.vertical-center {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+
+	&--flex {
+		display: flex;
+		align-items: center;
+	}
+}
+
+// utilities-paddingbottom-medium
+.u-pb-md {
+	padding-bottom: 3rem;
+}
+
+.u-mr-sm {
+	margin-right: 2rem;
+}
+
+.u-p-r {
+	position: relative;
+}
+
+.u-full-width {
+	width: 100%;
+}

@@ -3,13 +3,16 @@
     :class="`player player--${position}`"
     :to="{ path: `/players/${player.name}`, query: { playerId: player._id } }"
   >
-    <div>{{ position }}.</div>
-    <div>
-      <img :alt="player.name" :src="player.imageSrc">
-      {{ player.name }}
+    <div class="player__position">
+      <span class="content-1">{{ position }}.</span>
     </div>
-    <div>
-      <strong>{{ player.score }}</strong> bodova
+    <div class="player__personal-info">
+      <img :alt="player.name" :src="player.imageSrc">
+      <span class="content-2">{{ player.name }}</span>
+    </div>
+    <div class="player__score">
+      <strong class="content-1">{{ player.score }}</strong>
+      <span class="content-4">bodova</span>
     </div>
   </router-link>
 </template>
@@ -35,5 +38,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/ui/styles/components/_player.scss";
+@import "@/ui/styles/_typography.scss";
 </style>
 

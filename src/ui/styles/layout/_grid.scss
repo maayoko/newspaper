@@ -1,5 +1,22 @@
+@import "../mixins";
+
 .container {
+	margin: 0 auto;
+
+	&--restricted {
+		width: 96.4rem;
+
+		@include respond(tab-port) {
+			width: 69.4rem;
+		}
+
+		@include respond(phone) {
+			width: 100%;
+		}
+	}
 }
+
+// @include respond()
 
 // .container {
 //   max-width: 940px;

@@ -7,6 +7,14 @@ import "./ui/styles/_main.scss";
 
 Vue.config.productionTip = false;
 
+router.beforeEach((to, from, next) => {
+	const { articles, players } = store.state;
+	if ((articles == null || players == null) && to.path !== "/") {
+		router.replace("/");
+	}
+	next();
+});
+
 new Vue({
 	router,
 	store,

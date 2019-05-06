@@ -9,14 +9,9 @@
 	&__image {
 		position: relative;
 		height: 32.2rem;
-		width: 100%;
 
 		@include respond(tab-port) {
 			height: initial;
-		}
-
-		& img {
-			width: 100%;
 		}
 	}
 
@@ -26,13 +21,11 @@
 		bottom: 0;
 		width: 20rem;
 		height: 4rem;
-		// background-color: linear-gradient();
-		background-color: red;
+		background-image: linear-gradient(to right, #d20309, #d10309);
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		color: $color-white;
-		font-size: 1.8rem;
 	}
 
 	&__content {

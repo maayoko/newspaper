@@ -1,6 +1,10 @@
 <template>
   <header class="header">
-    <Logo/>
+    <div class="container container--restricted">
+      <div class="vertical-center">
+        <Logo/>
+      </div>
+    </div>
   </header>
 </template>
 
@@ -18,5 +22,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/ui/styles/layout/_header.scss";
+@import "@/ui/styles/layout/_grid.scss";
+@import "@/ui/styles/_utilities.scss";
 </style>
 

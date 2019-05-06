@@ -1,5 +1,4 @@
 @import "../variables";
-@import "../mixins";
 
 .players-stats {
 	background-color: $color-players_stats_bg;
@@ -26,7 +25,7 @@
 
 	&__list {
 		& > *:nth-child(n + 2) {
-			@include border;
+			border-top: 1px solid rgba($color-border, 0.3);
 		}
 	}
 
