@@ -1,10 +1,11 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./pages/Home.vue";
+import store from "../state";
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
 	scrollBehavior() {
 		return { x: 0, y: 0 };
 	},
@@ -28,3 +29,16 @@ export default new Router({
 		}
 	]
 });
+
+router.beforeEach((to, from, next) => {
+	const { articles, players } = store.state;
+	const articlesFetched = articles.list != null;
+	const playersFetched = players.list != null;
+
+	if ((!articlesFetched || !playersFetched) && to.path !== "/") {
+		router.push("/");
+	}
+	next();
+});
+
+export default router;

@@ -22,6 +22,12 @@
 <script>
 import Player from "./Player";
 
+const operations = {
+	CROPPED: "CROPPED",
+	FULLLIST: "FULLLIST",
+	REVERSEDLIST: "REVERSEDLIST"
+};
+
 export default {
 	name: "PlayersStats",
 	components: {
@@ -37,7 +43,7 @@ export default {
 		return {
 			currentPlayers: [...this.players],
 			selectedPlayer: this.players[0] || {},
-			operation: "cropped",
+			operation: operations.CROPPED,
 			fullList: false,
 			reversedList: false
 		};
@@ -45,54 +51,72 @@ export default {
 	computed: {
 		slicePlayers: function() {
 			const { operation: operationType, fullList, reversedList } = this;
-			if (operationType === "cropped") {
-				const slicedPlayers = [
-					...this.currentPlayers.slice(0, 7),
-					...this.currentPlayers.slice(-1)
-				];
-
-				return slicedPlayers.map((player, idx, arr) => {
-					const lastPlayer = idx === arr.length - 1 && !fullList;
-					const position = lastPlayer
-						? this.currentPlayers.length
-						: idx + 1;
-					return { ...player, position, last: lastPlayer };
-				});
-			} else if (operationType === "fullList") {
-				this.currentPlayers = [...this.players];
-				return this.currentPlayers.map((player, idx) => ({
-					...player,
-					position: idx + 1
-				}));
-			} else if (operationType === "reverseList") {
-				const reversedPlayers = this.players.reverse();
-				const slicedPlayers = [
-					...(fullList
-						? reversedPlayers
-						: [
-								...reversedPlayers.slice(0, 7),
-								...reversedPlayers.slice(-1)
-						  ])
-				];
-
-				return slicedPlayers.map((player, idx, arr) => {
-					const lastPlayer = idx === arr.length - 1 && !fullList;
-					const position = lastPlayer
-						? reversedPlayers.length
-						: idx + 1;
-					return { ...player, position, last: lastPlayer };
-				});
+			if (operationType === operations.CROPPED) {
+				return this._getCroppedPlayers();
+			} else if (operationType === operations.FULLLIST) {
+				return this._getFullListOfPlayers();
+			} else if (operationType === operations.REVERSEDLIST) {
+				return this._getReversedListOfPlayers();
 			}
 		}
 	},
 	methods: {
 		showAllPlayers() {
-			this.operation = "fullList";
+			this.operation = operations.FULLLIST;
 			this.fullList = !this.fullList;
 		},
 		reversePlayersList() {
-			this.operation = "reverseList";
+			this.operation = operations.REVERSEDLIST;
 			this.reversedList = !this.reversedList;
+		},
+		_getSlicedPlayers(players) {
+			return [...players.slice(0, 7), ...players.slice(-1)];
+		},
+		_mapSlicedPlayers(slicedPlayers, currentPlayers, operation) {
+			return slicedPlayers.map((player, idx, arr) => {
+				// If full list is requested we don't want to mark any player with last: true
+				const lastPlayer = idx === arr.length - 1 && !operation;
+				const position = lastPlayer ? currentPlayers.length : idx + 1;
+				return { ...player, position, last: lastPlayer };
+			});
+		},
+		_setSelectedPlayer(player) {
+			this.selectedPlayer = player;
+		},
+		_getCroppedPlayers() {
+			const { fullList } = this;
+			const slicedPlayers = this._getSlicedPlayers(this.currentPlayers);
+
+			return this._mapSlicedPlayers(
+				slicedPlayers,
+				this.currentPlayers,
+				fullList
+			);
+		},
+		_getFullListOfPlayers() {
+			const players = (this.currentPlayers = [...this.players]);
+			return players.map((player, idx) => ({
+				...player,
+				position: idx + 1
+			}));
+		},
+		_getReversedListOfPlayers() {
+			const { fullList } = this;
+			const reversedPlayers = this.players.reverse();
+			const slicedPlayers = [
+				...(fullList
+					? reversedPlayers
+					: this._getSlicedPlayers(reversedPlayers))
+			];
+
+			const newPlayersList = this._mapSlicedPlayers(
+				slicedPlayers,
+				reversedPlayers,
+				fullList
+			);
+
+			this._setSelectedPlayer(newPlayersList[0]);
+			return newPlayersList;
 		}
 	}
 };

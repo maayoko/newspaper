@@ -8,22 +8,7 @@ import "../ui/styles/_main.scss";
 export const ready = app => {
 	Vue.config.productionTip = false;
 
-	router.beforeEach((to, from, next) => {
-		const { articles, players } = store.state;
-		const articlesFetched = articles.list != null;
-		const playersFetched = players.list != null;
-
-		if ((!articlesFetched || !playersFetched) && to.path !== "/") {
-			router.push("/");
-		}
-		next();
-	});
-
-	new Vue({
-		router,
-		store,
-		render: h => h(App)
-	}).$mount("#app");
+	new Vue({ router, store, render: h => h(App) }).$mount("#app");
 
 	store.dispatch("getPlayers");
 	store.dispatch("getArticles");
