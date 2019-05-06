@@ -23,6 +23,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/ui/styles/_animations.scss";
 .slide-enter-active {
 	animation: coming 1s;
 	animation-delay: 0.5s;
@@ -31,27 +32,6 @@ export default {
 
 .slide-leave-active {
 	animation: going 1s;
-}
-
-@keyframes going {
-	from {
-		transform: translateX(0);
-	}
-	to {
-		transform: translateX(-50px);
-		opacity: 0;
-	}
-}
-
-@keyframes coming {
-	from {
-		transform: translateX(-50px);
-		opacity: 0;
-	}
-	to {
-		transform: translateX(0);
-		opacity: 1;
-	}
 }
 </style>
 
