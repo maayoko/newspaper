@@ -23,7 +23,7 @@ export default {
 		const { articleId } = this.$route.query;
 		const article = this.$store.getters.findArticleById(articleId);
 		const { players } = this.$store.state;
-		return { article, players };
+		return { article, players: players.list };
 	}
 };
 </script>

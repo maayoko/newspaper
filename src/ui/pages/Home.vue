@@ -45,7 +45,7 @@ export default {
 	computed: {
 		articles() {
 			const { articles } = this.$store.state;
-			return articles;
+			return articles.list;
 		}
 	}
 };
