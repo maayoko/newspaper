@@ -1,4 +1,5 @@
 import * as apiArticles from "@/api/articles";
+import { mapArticles } from "@/api/articles/mappers";
 
 const articles = {
 	state: { list: null },
@@ -14,7 +15,9 @@ const articles = {
 	},
 	actions: {
 		getArticles: async ({ commit }) => {
-			commit("updateArticles", await apiArticles.getAll());
+			const response = await apiArticles.getAll();
+			const articles = await response.json();
+			commit("updateArticles", mapArticles(articles));
 		}
 	}
 };

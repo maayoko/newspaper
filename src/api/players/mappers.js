@@ -6,7 +6,7 @@ const mapPlayers = players => {
 			player.id,
 			player.name,
 			player.score,
-			"/img/players/person50x50.png"
+			"img/players/person50x50.png"
 		)
 	);
 };

@@ -1,7 +1,7 @@
 <template>
   <div class="player-container u-full-width">
     <div class="player">
-      <img class="player__image" :alt="player.name" :src="player.imageSrc">
+      <img class="player__image" :alt="player.name" :src="`${publicPath}${player.imageSrc}`">
       <h2 class="player__name heading-4">{{ player.name}}</h2>
       <hr>
       <p class="player__score content-1">Score - {{ player.score }}</p>
@@ -22,7 +22,5 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/ui/styles/pages/_player.scss";
-@import "@/ui/styles/_utilities.scss";
-@import "@/ui/styles/_typography.scss";
 </style>
 

@@ -3,6 +3,7 @@
 .blog {
 	display: flex;
 	position: absolute;
+	padding-bottom: 3rem;
 
 	@include respond(tab-port) {
 		flex-direction: column;

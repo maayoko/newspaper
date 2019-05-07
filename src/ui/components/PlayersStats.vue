@@ -1,13 +1,13 @@
 <template>
   <aside class="players-stats">
     <div class="players-stats__title">
-      <h2>{{ selectedPlayer.name }}</h2>
-      <span>{{ selectedPlayer.score }} bodova</span>
+      <h2 class="heading-2">{{ selectedPlayer.name }}</h2>
+      <span class="heading-2">{{ selectedPlayer.score }} bodova</span>
     </div>
     <div class="players-stats__list">
       <div class="players-stats__list-title">
-        <p>Korisnik</p>
-        <p @click="reversePlayersList()">Bodovi</p>
+        <p class="content-3">Korisnik</p>
+        <p @click="reversePlayersList()" class="content-3">Bodovi</p>
       </div>
       <template v-for="(player, idx) in slicePlayers">
         <div @click="showAllPlayers()" class="players-stats__dots" :key="idx" v-if="player.last">

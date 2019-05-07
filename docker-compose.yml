@@ -1,10 +1,11 @@
 version: "3.7"
 services:
-  vue_app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    volumes:
-      - .:/home/node/app
-    ports:
-      - 3000:8080
+    vue_app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - .:/home/node/app
+        ports:
+            - 8080:8080
+            - 3000:3000

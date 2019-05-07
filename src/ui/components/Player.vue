@@ -7,7 +7,7 @@
       <span class="content-1">{{ position }}.</span>
     </div>
     <div class="player__personal-info">
-      <img :alt="player.name" :src="player.imageSrc">
+      <img :alt="player.name" :src="`${publicPath}${player.imageSrc}`">
       <span class="content-2">{{ player.name }}</span>
     </div>
     <div class="player__score">
@@ -38,6 +38,5 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/ui/styles/components/_player.scss";
-@import "@/ui/styles/_typography.scss";
 </style>
 

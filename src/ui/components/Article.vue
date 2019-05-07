@@ -41,7 +41,5 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/ui/styles/components/_article.scss";
-@import "@/ui/styles/_utilities.scss";
-@import "@/ui/styles/_typography.scss";
 </style>
 

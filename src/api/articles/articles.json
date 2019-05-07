@@ -3,8 +3,8 @@
 		"title": "Bem Metodologija",
 		"content": "<h3>BEM je kratica za Block, Element, Modifier</h3><p>BEM omogućava prilično strog način organizacije CSS klasa u neovisne module. To je objektan način pisanja CSS klasa i izgleda otprilike ovako:</p><p style='color: #006CFF'>.block {}</p><p style='color: #006CFF'>.block__element {}</p><p style='color: #006CFF'>.block--modifier {}</p><p style='color: #006CFF'>.block__element--modifier {}</p><p>Blok predstavlja objekt na web stranicama, npr menu</p><p>Element je dio bloka, npr <strong>menu__item</strong> - oznaka su dva underscora __</p><p>Modifier je varijacija elementa ili bloka, npr <strong>menu__item--news</strong> (ukoliko postoji razlika u recimo boji rubrika - <strong>news</strong> (crveno), <strong>show</strong> (narančasto), <strong>sport</strong> (zeleno)) - oznaka su dva minusa --</p><p><strong>Za pomoć oko BEM Metodologije pogledati</strong> <br /> <a href='http://tinyurl.com/k3gsu9s'>http://tinyurl.com/k3gsu9s</a></p>",
 		"imageSet": {
-			"lowRes": "/img/articles/bem.png",
-			"highRes": "/img/articles/bem@2x.png"
+			"lowRes": "img/articles/bem.png",
+			"highRes": "img/articles/bem@2x.png"
 		},
 		"link": "bem-metodologija"
 	},
@@ -12,8 +12,8 @@
 		"title": "Bem Metodologija",
 		"content": "<h3>BEM je kratica za Block, Element, Modifier</h3><p>BEM omogućava prilično strog način organizacije CSS klasa u neovisne module. To je objektan način pisanja CSS klasa i izgleda otprilike ovako:</p><p style='color: #006CFF'>.block {}</p><p style='color: #006CFF'>.block__element {}</p><p style='color: #006CFF'>.block--modifier {}</p><p style='color: #006CFF'>.block__element--modifier {}</p><p>Blok predstavlja objekt na web stranicama, npr menu</p><p>Element je dio bloka, npr <strong>menu__item</strong> - oznaka su dva underscora __</p><p>Modifier je varijacija elementa ili bloka, npr <strong>menu__item--news</strong> (ukoliko postoji razlika u recimo boji rubrika - <strong>news</strong> (crveno), <strong>show</strong> (narančasto), <strong>sport</strong> (zeleno)) - oznaka su dva minusa --</p><p><strong>Za pomoć oko BEM Metodologije pogledati</strong> <br /> <a href='http://tinyurl.com/k3gsu9s'>http://tinyurl.com/k3gsu9s</a></p>",
 		"imageSet": {
-			"lowRes": "/img/articles/bem.png",
-			"highRes": "/img/articles/bem@2x.png"
+			"lowRes": "img/articles/bem.png",
+			"highRes": "img/articles/bem@2x.png"
 		},
 		"link": "bem-metodologija"
 	},
@@ -21,8 +21,8 @@
 		"title": "Bem Metodologija",
 		"content": "<h3>BEM je kratica za Block, Element, Modifier</h3><p>BEM omogućava prilično strog način organizacije CSS klasa u neovisne module. To je objektan način pisanja CSS klasa i izgleda otprilike ovako:</p><p style='color: #006CFF'>.block {}</p><p style='color: #006CFF'>.block__element {}</p><p style='color: #006CFF'>.block--modifier {}</p><p style='color: #006CFF'>.block__element--modifier {}</p><p>Blok predstavlja objekt na web stranicama, npr menu</p><p>Element je dio bloka, npr <strong>menu__item</strong> - oznaka su dva underscora __</p><p>Modifier je varijacija elementa ili bloka, npr <strong>menu__item--news</strong> (ukoliko postoji razlika u recimo boji rubrika - <strong>news</strong> (crveno), <strong>show</strong> (narančasto), <strong>sport</strong> (zeleno)) - oznaka su dva minusa --</p><p><strong>Za pomoć oko BEM Metodologije pogledati</strong> <br /> <a href='http://tinyurl.com/k3gsu9s'>http://tinyurl.com/k3gsu9s</a></p>",
 		"imageSet": {
-			"lowRes": "/img/articles/bem.png",
-			"highRes": "/img/articles/bem@2x.png"
+			"lowRes": "img/articles/bem.png",
+			"highRes": "img/articles/bem@2x.png"
 		},
 		"link": "bem-metodologija"
 	}

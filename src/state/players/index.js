@@ -1,4 +1,5 @@
 import * as apiPlayers from "@/api/players";
+import { mapPlayers } from "@/api/players/mappers";
 
 const players = {
 	state: { list: null },
@@ -14,7 +15,9 @@ const players = {
 	},
 	actions: {
 		getPlayers: async ({ commit }) => {
-			commit("updatePlayers", await apiPlayers.getAll());
+			const response = await apiPlayers.getAll();
+			const playersObj = await response.json();
+			commit("updatePlayers", mapPlayers(playersObj.players));
 		}
 	}
 };
