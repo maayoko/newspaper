@@ -2,12 +2,12 @@
   <article class="article">
     <div class="article__image u-full-width">
       <picture>
-        <source media="(max-width: 37.5em)" :srcset="article.imageSet.lowRes">
+        <source media="(max-width: 37.5em)" :srcset="`${publicPath}${article.imageSet.lowRes}`">
         <img
           class="u-full-width"
           :alt="article.title"
-          :srcset="`${article.imageSet.lowRes} 1x, ${article.imageSet.highRes} 2x`"
-          :src="`${article.imageSet.highRes}`"
+          :srcset="`${publicPath}${article.imageSet.lowRes} 1x, ${publicPath}${article.imageSet.highRes} 2x`"
+          :src="`${publicPath}${article.imageSet.highRes}`"
         >
       </picture>
       <div class="article__title">

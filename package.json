@@ -9,8 +9,7 @@
 		"server:dev": "nodemon scripts/server",
 		"server:prod": "node scripts/server",
 		"test:unit": "vue-cli-service test:unit",
-		"prestart": "npm run build",
-		"start": "npm run server:prod",
+		"start": "NODE_ENV=production && npm run server:prod",
 		"dev": "npm-run-all --parallel server:dev serve"
 	},
 	"dependencies": {
