@@ -1,3 +1,5 @@
+import "whatwg-fetch";
+
 const fetch = window.fetch;
 const commonHeaders = {
 	"Content-Type": "application/json",

@@ -15,13 +15,16 @@ const articles = {
 	},
 	actions: {
 		getArticles: async ({ commit }) => {
-			try {
-				const response = await apiArticles.getAll();
-				const articles = await response.json();
-				commit("updateArticles", mapArticles(articles));
-			} catch (e) {
-				console.error(e);
-			}
+			apiArticles
+				.getAll()
+				.then(response => {
+					console.log(response);
+					return response.json();
+				})
+				.then(articles =>
+					commit("updateArticles", mapArticles(articles))
+				)
+				.catch(err => console.error(err));
 		}
 	}
 };
