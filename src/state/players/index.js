@@ -15,9 +15,13 @@ const players = {
 	},
 	actions: {
 		getPlayers: async ({ commit }) => {
-			const response = await apiPlayers.getAll();
-			const playersObj = await response.json();
-			commit("updatePlayers", mapPlayers(playersObj.players));
+			try {
+				const response = await apiPlayers.getAll();
+				const playersObj = await response.json();
+				commit("updatePlayers", mapPlayers(playersObj.players));
+			} catch (e) {
+				console.error(e);
+			}
 		}
 	}
 };
