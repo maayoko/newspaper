@@ -9,11 +9,86 @@
 }
 
 .player {
-	height: 9rem;
-	position: relative;
-	display: flex;
-	align-items: center;
 	text-decoration: none;
+	position: relative;
+	display: block;
+
+	// Hack for edge/ie explorer for hover animation.
+	// Edge/ie doesn't support transition when using calc, so we define full width upfront
+	// width: calc(100% + 3rem).
+	// When we hover over container we stretch before element to 100% instead of calc(100% + 3rem)
+	&__container {
+		height: 9rem;
+		display: flex;
+		align-items: center;
+		position: relative;
+		width: calc(100% + 3rem);
+		padding-right: 3rem;
+
+		&:after {
+			display: block;
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 2rem;
+			height: 5rem;
+			width: 0.5rem;
+			@include make-gradient(0);
+			transition: top 0.3s ease-in, height 0.3s ease-in;
+		}
+
+		&:before {
+			display: block;
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 9rem;
+			width: 0;
+			@include make-gradient(0.1);
+			transition: width 0.3s ease-in;
+			transition-delay: 0.3s;
+		}
+
+		&:nth-child(n + 6) {
+			&:before {
+				transition-delay: 0s;
+			}
+		}
+
+		&--1:after {
+			@include make-gradient(1);
+		}
+
+		&--2:after {
+			@include make-gradient(0.5);
+		}
+
+		&--3:after {
+			@include make-gradient(0.3);
+		}
+
+		&--4:after {
+			@include make-gradient(0.1);
+		}
+
+		&:hover {
+			&:after {
+				top: 0rem;
+				height: 9rem;
+			}
+
+			&:before {
+				width: 100%;
+			}
+		}
+	}
+
+	&:nth-child(n + 6) {
+		& > .player__container:before {
+			transition-delay: 0s;
+		}
+	}
 
 	// player's number
 	&__position {
@@ -43,64 +118,6 @@
 
 		& > strong {
 			margin-right: 0.7rem;
-		}
-	}
-
-	&:after {
-		display: block;
-		content: "";
-		position: absolute;
-		left: 0;
-		top: 2rem;
-		height: 5rem;
-		width: 0.5rem;
-		@include make-gradient(0);
-		transition: top 0.3s ease-in, height 0.3s ease-in;
-	}
-
-	&:before {
-		display: block;
-		content: "";
-		position: absolute;
-		left: 0;
-		top: 0;
-		height: 9rem;
-		width: 0;
-		@include make-gradient(0.1);
-		transition: width 0.3s ease-in;
-		transition-delay: 0.3s;
-	}
-
-	&:nth-child(n + 6) {
-		&:before {
-			transition-delay: 0s;
-		}
-	}
-
-	&--1:after {
-		@include make-gradient(1);
-	}
-
-	&--2:after {
-		@include make-gradient(0.5);
-	}
-
-	&--3:after {
-		@include make-gradient(0.3);
-	}
-
-	&--4:after {
-		@include make-gradient(0.1);
-	}
-
-	&:hover {
-		&:after {
-			top: 0rem;
-			height: 9rem;
-		}
-
-		&:before {
-			width: calc(100% + 3rem);
 		}
 	}
 }

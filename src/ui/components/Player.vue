@@ -1,18 +1,20 @@
 <template>
   <router-link
-    :class="`player player--${position}`"
+    class="player"
     :to="{ path: `/players/${player.name}`, query: { playerId: player._id } }"
   >
-    <div class="player__position">
-      <span class="content-1">{{ position }}.</span>
-    </div>
-    <div class="player__personal-info">
-      <img :alt="player.name" :src="`${publicPath}${player.imageSrc}`">
-      <span class="content-2">{{ player.name }}</span>
-    </div>
-    <div class="player__score">
-      <strong class="content-1">{{ player.score }}</strong>
-      <span class="content-4">bodova</span>
+    <div :class="`player__container player__container--${position}`">
+      <div class="player__position">
+        <span class="content-1">{{ position }}.</span>
+      </div>
+      <div class="player__personal-info">
+        <img :alt="player.name" :src="`${publicPath}${player.imageSrc}`">
+        <span class="content-2">{{ player.name }}</span>
+      </div>
+      <div class="player__score">
+        <strong class="content-1">{{ player.score }}</strong>
+        <span class="content-4">bodova</span>
+      </div>
     </div>
   </router-link>
 </template>
