@@ -4,13 +4,20 @@
 	display: flex;
 	position: absolute;
 	padding-bottom: 3rem;
+	// Specifying width is necessary for ie11, otherwise child elements don't take full width.
+	width: inherit;
 
 	@include respond(tab-port) {
-		flex-direction: column;
+		display: block;
 	}
 
 	&__article,
 	&__players-stats {
 		flex-basis: 50%;
+
+		@include respond(tab-port) {
+			// ie11 handles flex-basis really bad when flex-direction is set to column.
+			flex-basis: auto;
+		}
 	}
 }

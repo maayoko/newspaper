@@ -17,10 +17,7 @@ const players = {
 		getPlayers: ({ commit }) => {
 			apiPlayers
 				.getAll()
-				.then(response => {
-					console.log(response);
-					return response.json();
-				})
+				.then(response => response.json())
 				.then(playersObj =>
 					commit("updatePlayers", mapPlayers(playersObj.players))
 				)

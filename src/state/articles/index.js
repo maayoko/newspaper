@@ -17,10 +17,7 @@ const articles = {
 		getArticles: async ({ commit }) => {
 			apiArticles
 				.getAll()
-				.then(response => {
-					console.log(response);
-					return response.json();
-				})
+				.then(response => response.json())
 				.then(articles =>
 					commit("updateArticles", mapArticles(articles))
 				)
